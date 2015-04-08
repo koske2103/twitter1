@@ -1,0 +1,35 @@
+
+
+<% if user_signed_in? %>
+
+      
+
+      <div class="comments">
+            <% for comment in @comments %>
+            <hr>
+            
+              <div class="comments">
+                <%= comment.description %>
+               
+               <br><span>by: <%= link_to  comment.user.email,comment.user %>
+                 <li class="round-image-50"><%= image_tag(comment.user.avatar.url(:thumb)) %></li>
+              
+               <br><%= time_ago_in_words(comment.created_at ) %>
+               
+              </span>
+                <hr>
+              </div>
+        
+            <% end %>
+          </div>
+
+    
+<% end %>
+
+</body>
+</html>
+
+
+
+
+      

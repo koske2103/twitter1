@@ -1,0 +1,8 @@
+<% if current_user %>
+  <% if current_user.following?(@user) %>
+    Ya sigues a <%= @user.email %>
+     <%=  button_to "Dejar de Seguir", following_path(current_user.followings.find_by(following_user_id: @user.id)), remote: true, method: :delete %>
+  <% else %>
+    <%=  button_to "Seguir", followings_path(user_id: @user.id), remote: true %><br>
+  <% end %>
+<% end %>  

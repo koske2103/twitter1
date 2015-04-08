@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Twitter1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="STYLESHEET" type="text/css" href="layout.css">
+</head>
+<body>
+ 
+
+  <div id="menu">
+
+        <%= link_to('Home', root_path) %>
+      
+
+     <% if user_signed_in? %>
+      
+          <%= link_to('Editar Registro', edit_user_registration_path) %>
+      
+      <% else %>
+      
+          <%= link_to('Registrarse', new_user_registration_path)  %>
+      
+        <% end %>
+        
+        
+        <% if user_signed_in? %>
+      
+          <%= link_to('Salir', destroy_user_session_path, :method => :delete) %>     <br>   
+      
+      <% else %>
+      
+          <%= link_to('Ingresar', new_user_session_path)  %>  <br>
+      
+      <% end %>  
+      
+
+  </div>
+<br><br>
+
+<div id="com">
+    <% if user_signed_in? %>
+            
+            <h1>Bienvenido!!!</h1>
+           
+            <%= link_to('Nuevo Tweet', new_comment_path) %>
+
+        <% else %>
+              <h1>Bienvenidos al Mini-Twitter</h1>
+             <%= link_to('Registrate', new_user_registration_path)  %>
+        <% end %>
+</div>
+  
+	<p class="notice" style="color: green"><%= notice %></p>
+	<p class="alert" style="color: red"><%= alert %></p>
+ 
+
+ <%= yield %>
+
+ </body>
+ 
+ 	
+ 
+<footer>  
+	
+
+<p>by koske</p> 
+
+</footer>
+</html>

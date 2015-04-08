@@ -1,0 +1,15 @@
+<h1>Nuevo Comentario</h1>
+
+<%= form_for @comment do |f| %>
+
+  
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="action">
+    <%= f.submit "Enviar" %>
+  </div>
+
+<% end %>
